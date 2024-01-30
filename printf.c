@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 
 	for (; *format; format++)
 	{
-		if (*format != %)
+		if (*format != '%')
 		{
 			i = copy_to_buf(*format, buffer);
 			if (i == -1)
@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			i = check_specifier(va_list argu, format, buffer);
+			i = check_specifier(argu, format, buffer);
 			if (i == -1)
 			{
 				break;
