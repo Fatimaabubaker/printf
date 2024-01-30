@@ -31,16 +31,17 @@ int check_specifier(va_list val, char *format, char *buffer)
 /**
  * handle_char - handles character argument
  * @val: the list
+ * @buffer: the buffe
  *
  * Return: one for char copied and -1 if buf is full
  */
 
-int handle_char(va_list val)
+int handle_char(va_list val, char *buffer)
 {
 	int i;
 	int character = (int)va_arg(val, char);
 
-	i = copy_to_buf(character);
+	i = copy_to_buf(character, buffer);
 	if (i == -1)
 		return (-1);
 	else
@@ -50,16 +51,16 @@ int handle_char(va_list val)
 /**
  * handle_percent - handles percent argument
  * @val: the list
- *
+ * @buffer: the buf
  * Return: 1 on success -1 on failiure
  */
 
-int handle_percent(va_list val)
+int handle_percent(va_list val, char *buffer)
 {
 	(void)val;
 	int i;
 
-	i = copy_to_buf('%');
+	i = copy_to_buf('%', buffer);
 	if (i == -1)
 		return (-1);
 	else
@@ -69,11 +70,12 @@ int handle_percent(va_list val)
 /**
  * handle_string - copies the string to buffer
  * @val: the list
+ * @buffer: the buf
  *
  * Return: number of char copied or -1 if buffer is full
  */
 
-int handle_string(va_list val)
+int handle_string(va_list val, char *buffer)
 {
 	char nil[] = "(nill)";
 	int i;
@@ -85,7 +87,7 @@ int handle_string(va_list val)
 		str = nil;
 	for (; *str; str++)
 	{
-		i = copy_to_buf(*str);
+		i = copy_to_buf(*str, buffer);
 		if (i == -1)
 			return (-1);
 		else

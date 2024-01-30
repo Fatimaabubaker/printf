@@ -31,8 +31,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			i = chech_specifier(va_list argu, format, buffer);
-			if (i = -1)
+			i = check_specifier(va_list argu, format, buffer);
+			if (i == -1)
 			{
 				break;
 			}

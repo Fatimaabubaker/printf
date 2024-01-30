@@ -5,10 +5,19 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+int handle_char(va_list val, char *buffer);
+int handle_string(va_list val, char *buffer);
+int handle_percent(va_list val, char *buffer);
+int handle_dec(va_list val, char *buffer);
+int handle_int(va_list val, char *buffer);
+int check_specifier(va_list val, char *format, char *buffer);
+int copy_to_buf(int c, char *buffer);
+int _printf(const char *format, ...);
+
 typedef struct specpair
 {
 	char spec;
-	int (*function)(va_list val, buffer);
+	int (*function)(va_list val, char *buffer);
 } specfunpair;
 
 specfunpair pairs[] = {
@@ -18,10 +27,5 @@ specfunpair pairs[] = {
 	{'d', handle_dec},
 	{'i', handle_int}
 };
-
-int _putchar(char c);
-
-int _printf(const char *format, ...);
-
 
 #endif

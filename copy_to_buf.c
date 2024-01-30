@@ -7,9 +7,9 @@
  * Return: 1 on success
  */
 
-int copy_to_buf(int c,)
+int copy_to_buf(int c, char *buffer)
 {
-	static int b;
+	static int b = 0;
 	if (b >= 1024)
 	{
 		return (-1);
