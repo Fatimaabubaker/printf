@@ -17,19 +17,31 @@ int _printf(const char *format, ...)
 
 	va_start(argu, format);
 
+	char *buffer = (char *)malloc(1024);
+
 	for (; *format; format++)
 	{
 		if (*format != %)
 		{
-			copy_to_buf(*format);
+			i = copy_to_buf(*format, buffer);
+			if (i == -1)
+				break;
 			pc++;
 		}
 		else
 		{
 			format++;
-			pc += chech_specifier;
+			i = chech_specifier(va_list argu, format, buffer);
+			if (i = -1)
+			{
+				break;
+			}
+			else
+				pc += i;
 		}
 	}
+	write(1, buffer, pc);
+	free(buffer);
 	va_end(argu);
 	return (pc);
 }
