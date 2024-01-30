@@ -12,12 +12,12 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int pc = 0;
+	char *buffer = (char *)malloc(1024);
 
 	va_list argu;
 
 	va_start(argu, format);
 
-	char *buffer = (char *)malloc(1024);
 
 	for (; *format; format++)
 	{

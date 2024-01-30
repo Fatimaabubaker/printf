@@ -9,9 +9,9 @@
  * Return: -1 on full buffer and number of char copied otherwise
  */
 
-int check_specifier(va_list val, char *format, char *buffer)
+int check_specifier(va_list val, const char *format, char *buffer)
 {
-	int g;
+	size_t g;
 	int i;
 
 	for (; g < sizeof(pairs) / sizeof(pairs[0]); g++)
@@ -39,7 +39,7 @@ int check_specifier(va_list val, char *format, char *buffer)
 int handle_char(va_list val, char *buffer)
 {
 	int i;
-	int character = (int)va_arg(val, char);
+	int character = va_arg(val, int);
 
 	i = copy_to_buf(character, buffer);
 	if (i == -1)
@@ -57,8 +57,8 @@ int handle_char(va_list val, char *buffer)
 
 int handle_percent(va_list val, char *buffer)
 {
-	(void)val;
 	int i;
+	(void)val;
 
 	i = copy_to_buf('%', buffer);
 	if (i == -1)

@@ -19,4 +19,5 @@ int main(void)
 	_printf("init %c\n", riri);
 	printf(" my initial : %c and my name is %s\n", riri, ro);
 	_printf(" my initial : %c and my name is %s\n", riri, ro);
+	return (0);
 }
