@@ -16,7 +16,7 @@ int check_specifier(va_list val, char *format, char *buffer)
 
 	for (; g < sizeof(pairs) / sizeof(pairs[0]); g++)
 	{
-		if (*format == pairs[i].specifier)
+		if (*format == pairs[i].spec)
 		{
 			i = pairs[g].function(val);
 			if (i == -1)
