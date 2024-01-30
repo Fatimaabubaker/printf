@@ -1,5 +1,11 @@
 #include "main.h"
 
+specfunpair pairs[] = {
+        {'c', handle_char},
+        {'s', handle_string},
+        {'%', handle_percent},
+};
+
 /**
  * check_specifier - checks for specifier
  * @val: argument

@@ -21,12 +21,5 @@ typedef struct specpair
 	int (*function)(va_list val, char *buffer);
 } specfunpair;
 
-specfunpair pairs[] = {
-	{'c', handle_char},
-	{'s', handle_string},
-	{'%', handle_percent},
-	{'d', handle_dec},
-	{'i', handle_int}
-};
 
 #endif
