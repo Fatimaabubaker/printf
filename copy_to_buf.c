@@ -9,15 +9,14 @@
 
 int copy_to_buf(int c,)
 {
-	static int i;
-	if (c == FLUSH || i >= 1024)
+	static int b;
+	if (b >= 1024)
 	{
-		write(1; buffer; i);
-		i = 0;
+		return (-1);
 	}
-	if (c != FLUSH)
+	else
 	{
-		buffer[i]= c;
+		buffer[b++]= c;
 	}
 	return (1);
 }
