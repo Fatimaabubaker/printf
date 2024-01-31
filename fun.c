@@ -20,7 +20,7 @@ int check_specifier(va_list val, const char *format, char *buffer)
 	size_t g;
 	int i;
 
-	for (; g < sizeof(pairs) / sizeof(pairs[0]); g++)
+	for (g = 0; g < sizeof(pairs) / sizeof(pairs[0]); g++)
 	{
 		if (*format == pairs[g].spec)
 		{
@@ -45,7 +45,7 @@ int check_specifier(va_list val, const char *format, char *buffer)
 int handle_char(va_list val, char *buffer)
 {
 	int i;
-	int character = va_arg(val, int);
+	unsigned int character = va_arg(val, int);
 
 	i = copy_to_buf(character, buffer);
 	if (i == -1)
@@ -66,7 +66,7 @@ int handle_percent(va_list val, char *buffer)
 	int i;
 	(void)val;
 
-	i = copy_to_buf('%', buffer);
+	i = copy_to_buf(37, buffer);
 	if (i == -1)
 		return (-1);
 	else

@@ -17,7 +17,7 @@ int main(void)
 	_printf("name %s da\n", ro);
 	printf("init %c\n", riri);
 	_printf("init %c\n", riri);
-	printf(" my initial : %c and my name is %s\n", riri, ro);
-	_printf(" my initial : %c and my name is %s\n", riri, ro);
+	printf(" my %%initial : %c and my name is %s\n", riri, ro);
+	_printf(" my %%initial : %c and my name is %s\n", riri, ro);
 	return (0);
 }

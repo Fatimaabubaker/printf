@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 				pc += i;
 		}
 	}
+	copy_to_buf('\0', buffer);
 	write(1, buffer, pc);
 	free(buffer);
 	va_end(argu);
